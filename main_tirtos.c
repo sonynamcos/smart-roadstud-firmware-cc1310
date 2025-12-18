@@ -45,6 +45,8 @@
 /* Example/Board Header files */
 #include "Board.h"
 
+#include "sk6812.h"
+
 extern void *mainThread(void *arg0);
 
 /* Stack size in bytes */
@@ -63,6 +65,17 @@ int main(void)
 
     /* Call driver init functions */
     Board_initGeneral();
+
+    sk6812_init();
+    // ✅ RF 없이 LED만 먼저 확인 (여기서 무한루프)
+    while (1) {
+        sk6812_show_rgb(255, 0, 0);  // 빨강
+        volatile uint32_t i;
+        for (i = 0; i < 2000000; i++) { __asm(" nop"); }
+        sk6812_show_rgb(0, 0, 0);     // 끔
+        for (i = 0; i < 2000000; i++) { __asm(" nop"); }
+    }
+
 
     /* Set priority and stack size attributes */
     pthread_attr_init(&attrs);

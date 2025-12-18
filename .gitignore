@@ -1,0 +1,19 @@
+# CCS build outputs
+Debug/
+Release/
+targetConfigs/
+
+# Build artifacts
+*.out
+*.map
+*.obj
+*.d
+*.d_raw
+*.opt
+*.mk
+*.xml
+
+# clangd cache
+.clangd/
+**/.clangd/
+**/.cache/
