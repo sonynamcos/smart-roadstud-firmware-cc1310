@@ -46,11 +46,14 @@
 #include "Board.h"
 
 #include "sk6812.h"
+#include "CC1310_LAUNCHXL.h"
+
 
 extern void *mainThread(void *arg0);
 
 /* Stack size in bytes */
 #define THREADSTACKSIZE    1024
+#define TEST_PIN NODE_SK6812_DIN   // = IOID_4 로 바뀐 상태
 
 /*
  *  ======== main ========

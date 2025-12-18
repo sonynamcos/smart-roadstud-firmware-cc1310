@@ -1,10 +1,11 @@
+#include "CC1310_LAUNCHXL.h"
 #include "sk6812.h"
 #include <ti/devices/cc13x0/driverlib/gpio.h>
 #include <ti/devices/cc13x0/driverlib/ioc.h>
 #include <ti/devices/cc13x0/driverlib/cpu.h>
 #include <ti/sysbios/hal/Hwi.h>
 
-#define SK_PIN IOID_16   // 쭌: LED 핀 16번
+#define SK_PIN  NODE_SK6812_DIN
 
 static inline void dly(uint32_t cycles) { CPUdelay(cycles); }
 
